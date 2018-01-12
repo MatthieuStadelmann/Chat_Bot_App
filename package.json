@@ -6,6 +6,7 @@
     "apiai": "^4.0.3",
     "botui": "^0.3.4",
     "dialogflow": "^0.1.0",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "google-auth-library": "^1.0.0",

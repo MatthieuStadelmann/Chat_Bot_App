@@ -5,6 +5,7 @@ const server = http.createServer(app);
 const io = require('socket.io').listen(server);
 const ai = require('./api');
 const dialogFlow = ai.dialogFlow;
+require('dotenv').load();
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -27,9 +28,5 @@ io.on('connection', function(socket) {
   });
 });
 
-if (process.env.PORT) {
-  console.log("HEYYYYYYYYYYYY")
-  console.log("HEY", process.env.auth_provider_x509_cert_url)
-}
 
 server.listen(process.env.PORT || 3000, () => console.log('listening on port 3000!'))
