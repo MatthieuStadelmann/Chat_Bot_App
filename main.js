@@ -29,7 +29,7 @@ io.on('connection', function(socket) {
 
 if (process.env.PORT) {
   console.log("HEYYYYYYYYYYYY")
-  console.log(process.env.auth_provider_x509_cert_url)
+  console.log("HEY", process.env[auth_provider_x509_cert_url])
 }
 
 server.listen(process.env.PORT || 3000, () => console.log('listening on port 3000!'))
