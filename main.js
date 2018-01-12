@@ -28,6 +28,7 @@ io.on('connection', function(socket) {
 });
 
 if (process.env.PORT) {
+  console.log("HEYYYYYYYYYYYY")
   console.log(process.env.auth_provider_x509_cert_url)
 }
 
