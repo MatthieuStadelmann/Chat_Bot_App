@@ -10,6 +10,7 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "google-auth-library": "^1.0.0",
+    "google-cloud": "^0.57.0",
     "socket.io": "^2.0.4"
   },
   "engines": {

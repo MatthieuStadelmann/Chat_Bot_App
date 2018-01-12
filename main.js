@@ -6,6 +6,14 @@ const io = require('socket.io').listen(server);
 const ai = require('./api');
 const dialogFlow = ai.dialogFlow;
 // Authenticating on a global basis.
+var projectId = process.env.GCLOUD_PROJECT;
+
+var gcloud = require('google-cloud')({
+   projectId: projectId,
+
+credentials: require('./keyfile.json')
+
+});
 
 
 app.get('/', function(req, res) {
