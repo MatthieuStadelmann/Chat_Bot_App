@@ -1,5 +1,7 @@
 {
-  "start": "node main.js",
+  "scripts": {
+      "start": "node main.js"
+  },
   "dependencies": {
     "apiai": "^4.0.3",
     "botui": "^0.3.4",
