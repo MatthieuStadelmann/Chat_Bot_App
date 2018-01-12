@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Grover ChatBot</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <h1>Grover Chatbot</h1>
+    </div>
+    <div class="main">
+      <div class="chatBotContainer">
+        <div class="messagesContainer">
+          <ul id="messages">
+          </ul>
+        </div>
+        <form action="">
+          <input id="m" autocomplete="off" />
+          <button>Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/socket.js"></script>
+</body>
+
+</html>
