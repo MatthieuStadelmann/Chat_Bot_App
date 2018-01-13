@@ -8,21 +8,13 @@ const dialogFlow = ai.dialogFlow;
 // Authenticating on a global basis.
 var projectId = process.env.GCLOUD_PROJECT;
 
-var gcloud = require('google-cloud')({
-   projectId: projectId,
-
-credentials: require('./keyfile.json')
-
-});
-
+var gcloud = require('google-cloud')({projectId: projectId, credentials: require('./keyfile.json')});
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
 app.use(express.static('./public'));
-
-
 
 io.on('connection', function(socket) {
 
@@ -36,6 +28,5 @@ io.on('connection', function(socket) {
     console.log('user disconnected');
   });
 });
-
 
 server.listen(process.env.PORT || 3000, () => console.log('listening on port 3000!'))

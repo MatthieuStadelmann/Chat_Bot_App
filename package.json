@@ -15,11 +15,5 @@
   },
   "engines": {
     "node": "v8.9.1"
-  },
-  "name": "socket-chat-example",
-  "version": "0.0.1",
-  "description": "my first socket.io app",
-  "devDependencies": {
-    "webpack": "^3.10.0"
   }
 }
