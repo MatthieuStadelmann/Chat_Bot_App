@@ -1,10 +1,12 @@
 function dialogFlow(query) {
+  // var projectId = process.env.GCLOUD_PROJECT;
+
 
   // You can find your project ID in your Dialogflow agent settings
   const projectId = 'grover-b350e'; //https://dialogflow.com/docs/agents#settings
   const sessionId = 'quickstart-session-id';
   const languageCode = 'en-US';
-
+  var gcloud = require('google-cloud')({projectId: projectId, credentials: require('./keyfile.json')});
   // Instantiate a DialogFlow client.
   const dialogflow = require('dialogflow');
   const sessionClient = new dialogflow.SessionsClient();
