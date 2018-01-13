@@ -2,6 +2,7 @@
 ## Technology:
 Node.js, Dialogflow, Socket.Io, Redis
 ## Demo:
+=> Redis isn't deployed yet. 
 At this point you can try the app with the following sentences:
 I am interested in computers/phones/wearables/drones/gaming/smart home.
 
