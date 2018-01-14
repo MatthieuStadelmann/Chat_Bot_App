@@ -10,6 +10,7 @@ const redis = require('redis');
 const nconf = require('nconf');
 
 nconf.argv().env().file('keys.json');
+
 const client = redis.createClient(nconf.get('redisPort') || '6379', nconf.get('redisHost') || '127.0.0.1', {
   'auth_pass': nconf.get('redisKey'),
   'return_buffers': true
@@ -37,7 +38,7 @@ io.on('connection', function(socket) {
     })
   }).then((data) => {
     data.forEach((message) => {
-      io.emit('chat message', message);
+      io.emit('chat message', message.toString());
     });
   });
   socket.on('chat message', function(msg) {
