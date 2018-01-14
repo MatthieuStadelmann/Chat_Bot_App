@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
 
   new Promise((resolve, reject) => {
-
+//On connection get previous messages from Redis
     client.lrange('messagesList', 0, 10, function(err, data) {
       if (err) {
         reject();
@@ -37,12 +37,13 @@ io.on('connection', function(socket) {
       }
     })
   }).then((data) => {
+//Send the previous messages
     data.forEach((message) => {
       io.emit('chat message', message.toString());
     });
   });
   socket.on('chat message', function(msg) {
-
+//on chat messages, add message to Redis
     client.rpush("messagesList", msg, function(err, data) {
       if (err) {
         return console.log(err);
@@ -51,20 +52,19 @@ io.on('connection', function(socket) {
     });
 
     io.emit('chat message', msg);
-
+//send the message to the chatbot
     dialogFlow(msg).then((resp) => {
-
+//add the chatbot response to redis
       client.rpush("messagesList", resp, function(err, data) {
         if (err) {
           return console.log(err);
         }
         console.log('the response key was successfully set', resp);
       });
-
+//send the chatbot response to the client
       io.emit('chat message', resp);
     });
 
-    //When client disconnect show the value of the conv:
     socket.on('disconnect', function() {});
     console.log('user disconnected');
   });
