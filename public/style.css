@@ -27,6 +27,7 @@ font-family: 'Lato', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
 }
 
 .main {
@@ -34,8 +35,8 @@ font-family: 'Lato', sans-serif;
   justify-content: center;
 }
 
-.messagesContainer{
-  overflow: scroll;
+.messagesContainer {
+  overflow:scroll;
 }
 
 form {

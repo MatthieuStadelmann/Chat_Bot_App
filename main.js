@@ -25,10 +25,12 @@ app.get('/', function(req, res) {
 //Socket.IO
 
 io.on('connection', function(socket) {
+  //Welcome message
+    io.emit('chat message', 'Welcome to Grover! Are you interested in computers, wearables, phones, smart homes, drones or gaming?');
 
   new Promise((resolve, reject) => {
 //On connection get previous messages from Redis
-    client.lrange('messagesList', 0, 10, function(err, data) {
+    client.lrange('messagesList', 0, 99, function(err, data) {
       if (err) {
         reject();
       } else {
@@ -42,6 +44,7 @@ io.on('connection', function(socket) {
       io.emit('chat message', message.toString());
     });
   });
+
   socket.on('chat message', function(msg) {
 //on chat messages, add message to Redis
     client.rpush("messagesList", msg, function(err, data) {
